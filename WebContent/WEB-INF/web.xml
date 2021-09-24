@@ -14,20 +14,109 @@
   
   
   
+  
   <servlet>
   	<servlet-name>test2</servlet-name>
   	<servlet-class>day1.Test2</servlet-class>
-  	<!-- <load-on-startup>0</load-on-startup> -->
+  <load-on-startup>1</load-on-startup>
   </servlet>
   
 
+ 
+ 
   
-   <servlet-mapping>
+  <servlet-mapping>
    
    	<servlet-name>test2</servlet-name>
    	<url-pattern>/test2</url-pattern>
    
    </servlet-mapping>
 
+
+  <servlet>
+  	<servlet-name>test21</servlet-name>
+  	<servlet-class>day2.Test1</servlet-class>
+  </servlet>
+  
+
+  <servlet-mapping>
+   
+   	<servlet-name>test21</servlet-name>
+   	<url-pattern>/test21</url-pattern>
+   
+   </servlet-mapping> 
+   
+   
+   
+   <servlet>
+   
+   <servlet-name>test22</servlet-name>
+   <servlet-class>day2.Test2</servlet-class>
+   
+   </servlet>
+   
+   <servlet-mapping>
+   
+   <servlet-name>test22</servlet-name>
+   <url-pattern>/test22.do</url-pattern>
+   
+   </servlet-mapping>
+   
+   
+    <servlet>
+   
+   <servlet-name>test23</servlet-name>
+   <servlet-class>day2.Test3</servlet-class>
+   
+   </servlet>
+   
+   <servlet-mapping>
+   
+   <servlet-name>test23</servlet-name>
+   <url-pattern>/test23.do</url-pattern>
+   
+   </servlet-mapping>
+   
+   
+   <servlet-mapping>
+   
+   <servlet-name>test23</servlet-name>
+   <url-pattern>/a/test23a.do</url-pattern>
+   
+   </servlet-mapping>
+   
+   
+   
+   <servlet>
+   
+   <servlet-name>test24</servlet-name>
+   <servlet-class>day2.Test4</servlet-class>
+   
+   </servlet>
+   
+   <servlet-mapping>
+   
+   <servlet-name>test24</servlet-name>
+   <url-pattern>/test24</url-pattern>
+   
+   </servlet-mapping>
+   
+   
+    <servlet>
+   
+   <servlet-name>test26</servlet-name>
+   <servlet-class>day2.Test6</servlet-class>
+   
+   </servlet>
+   
+   <servlet-mapping>
+   
+   <servlet-name>test26</servlet-name>
+   <url-pattern>/test26</url-pattern>
+   
+   </servlet-mapping>
+   
+   
+   
 
 </web-app>
