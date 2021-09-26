@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>web14</display-name>
+  
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  
+  
+  <servlet>
+  	<servlet-name>test2</servlet-name>
+  	<servlet-class>day1.Test2</servlet-class>
+  <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+
+ 
+ 
+  
+  <servlet-mapping>
+   
+   	<servlet-name>test2</servlet-name>
+   	<url-pattern>/test2</url-pattern>
+   
+   </servlet-mapping>
+
+
+  <servlet>
+  	<servlet-name>test21</servlet-name>
+  	<servlet-class>day2.Test1</servlet-class>
+  </servlet>
+  
+
+  <servlet-mapping>
+   
+   	<servlet-name>test21</servlet-name>
+   	<url-pattern>/test21</url-pattern>
+   
+   </servlet-mapping> 
+   
+   
+   
+   <servlet>
+   
+   <servlet-name>test22</servlet-name>
+   <servlet-class>day2.Test2</servlet-class>
+   
+   </servlet>
+   
+   <servlet-mapping>
+   
+   <servlet-name>test22</servlet-name>
+   <url-pattern>/test22.do</url-pattern>
+   
+   </servlet-mapping>
+   
+   
+    <servlet>
+   
+   <servlet-name>test23</servlet-name>
+   <servlet-class>day2.Test3</servlet-class>
+   
+   </servlet>
+   
+   <servlet-mapping>
+   
+   <servlet-name>test23</servlet-name>
+   <url-pattern>/test23.do</url-pattern>
+   
+   </servlet-mapping>
+   
+   
+   <servlet-mapping>
+   
+   <servlet-name>test23</servlet-name>
+   <url-pattern>/a/test23a.do</url-pattern>
+   
+   </servlet-mapping>
+   
+   
+   
+   <servlet>
+   
+   <servlet-name>test24</servlet-name>
+   <servlet-class>day2.Test4</servlet-class>
+   
+   </servlet>
+   
+   <servlet-mapping>
+   
+   <servlet-name>test24</servlet-name>
+   <url-pattern>/test24</url-pattern>
+   
+   </servlet-mapping>
+   
+   
+    <servlet>
+   
+   <servlet-name>test26</servlet-name>
+   <servlet-class>day2.Test6</servlet-class>
+   
+   </servlet>
+   
+   <servlet-mapping>
+   
+   <servlet-name>test26</servlet-name>
+   <url-pattern>/test26</url-pattern>
+   
+   </servlet-mapping>
+   
+   
+   
+
+</web-app>
