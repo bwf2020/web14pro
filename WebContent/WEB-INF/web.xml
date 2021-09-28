@@ -15,151 +15,89 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 
-	<context-param>
-
-		<param-name>a</param-name>
-		<param-value>AAA</param-value>
-	</context-param>
 
 
 	<servlet>
 		<servlet-name>test1</servlet-name>
-		<servlet-class>day4.Test1</servlet-class>
-		<load-on-startup>0</load-on-startup>
-
+		<servlet-class>day5.Test1</servlet-class>
 	</servlet>
+
 
 	<servlet-mapping>
 
 		<servlet-name>test1</servlet-name>
-		<url-pattern>/test1</url-pattern>
-
+		<url-pattern>/a/test1</url-pattern>
 	</servlet-mapping>
 
 
 	<servlet>
 		<servlet-name>test2</servlet-name>
-		<servlet-class>day4.Test2</servlet-class>
-		<load-on-startup>0</load-on-startup>
-
+		<servlet-class>day5.Test2</servlet-class>
 	</servlet>
+
 
 	<servlet-mapping>
 
 		<servlet-name>test2</servlet-name>
-		<url-pattern>/test2</url-pattern>
-
+		<url-pattern>/b/test2</url-pattern>
 	</servlet-mapping>
+
+
+	<filter>
+	
+		<filter-name>filter1</filter-name>
+		<filter-class>day5.Filter1</filter-class>
+		
+	</filter>
+	
+<!-- 	<filter-mapping>
+	
+		<filter-name>filter1</filter-name>
+		<url-pattern>/*</url-pattern>
+	
+	</filter-mapping> -->
 
 
 	<servlet>
 		<servlet-name>test3</servlet-name>
-		<servlet-class>day4.Test3</servlet-class>
-		<load-on-startup>0</load-on-startup>
-
+		<servlet-class>day5.Test3</servlet-class>
 	</servlet>
+
 
 	<servlet-mapping>
 
 		<servlet-name>test3</servlet-name>
 		<url-pattern>/test3</url-pattern>
-
 	</servlet-mapping>
+
+
+
+	<listener>
+		<listener-class>day5.ReqListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>day5.SessionListener</listener-class>
+	</listener>
+	
+	
+	<listener>
+		<listener-class>day5.ReqAttrListener</listener-class>
+	</listener>
 	
 	
 	<servlet>
-		<servlet-name>test4</servlet-name>
-		<servlet-class>day4.Test4</servlet-class>
-		<load-on-startup>0</load-on-startup>
-
-	</servlet>
-
-	<servlet-mapping>
-
-		<servlet-name>test4</servlet-name>
-		<url-pattern>/test4</url-pattern>
-
-	</servlet-mapping>
 	
-	<servlet>
 		<servlet-name>test5</servlet-name>
-		<servlet-class>day4.Test5</servlet-class>
-		<load-on-startup>0</load-on-startup>
-
+		<servlet-class>day5.Test5</servlet-class>
+	
 	</servlet>
-
+	
 	<servlet-mapping>
-
+	
 		<servlet-name>test5</servlet-name>
 		<url-pattern>/test5</url-pattern>
-
+	
 	</servlet-mapping>
-	
-	<servlet-mapping>
-
-		<servlet-name>test5</servlet-name>
-		<url-pattern>/a/b/test5</url-pattern>
-
-	</servlet-mapping>
-	
-	
-	<filter>
-	
-		<filter-name>test6</filter-name>
-		<filter-class>day4.Test6</filter-class>
-
-	</filter>
-	
-		<filter>
-	
-		<filter-name>test7</filter-name>
-		<filter-class>day4.Test7</filter-class>
-		<init-param>
-		
-			<param-name>encode</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
-
-	</filter>
-	
-	
-	<filter>
-	
-		<filter-name>test8</filter-name>
-		<filter-class>day4.Test8</filter-class>
-
-	</filter>
-	
-	<filter-mapping>
-	
-		<filter-name>test6</filter-name>
-		<url-pattern>/*</url-pattern>
-		
-	</filter-mapping>
-	
-	<filter-mapping>
-	
-		<filter-name>test7</filter-name>
-		<url-pattern>/*</url-pattern>
-		
-	</filter-mapping>
-	
-	
-		<filter-mapping>
-	
-		<filter-name>test8</filter-name>
-		<url-pattern>/*</url-pattern>
-		
-	</filter-mapping>
-
-	
-	<servlet-mapping>
-
-		<servlet-name>test5</servlet-name>
-		<url-pattern>/test5.do</url-pattern>
-
-	</servlet-mapping>
-
-
 
 </web-app>
