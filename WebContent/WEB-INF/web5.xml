@@ -19,71 +19,85 @@
 
 	<servlet>
 		<servlet-name>test1</servlet-name>
-		<servlet-class>day6.Test1</servlet-class>
+		<servlet-class>day5.Test1</servlet-class>
 	</servlet>
 
 
 	<servlet-mapping>
 
 		<servlet-name>test1</servlet-name>
-		<url-pattern>/test1</url-pattern>
+		<url-pattern>/a/test1</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<servlet>
 		<servlet-name>test2</servlet-name>
-		<servlet-class>day6.Test2</servlet-class>
+		<servlet-class>day5.Test2</servlet-class>
 	</servlet>
 
 
 	<servlet-mapping>
 
 		<servlet-name>test2</servlet-name>
-		<url-pattern>/test2</url-pattern>
+		<url-pattern>/b/test2</url-pattern>
 	</servlet-mapping>
-
 
 
 	<filter>
 	
 		<filter-name>filter1</filter-name>
-		<filter-class>day6.Filter1</filter-class>
-	
+		<filter-class>day5.Filter1</filter-class>
+		
 	</filter>
 	
-	<!-- <filter-mapping>
+<!-- 	<filter-mapping>
 	
 		<filter-name>filter1</filter-name>
 		<url-pattern>/*</url-pattern>
 	
-	</filter-mapping>
- -->
- 
- <servlet>
- <servlet-name>test5</servlet-name>
- <jsp-file>/day6/test5.jsp</jsp-file>
- <init-param>
- 	<param-name>a</param-name>
- 	<param-value>AAAAAA</param-value>
- </init-param>
- </servlet>
- 
- <servlet-mapping>
- 
- 	<servlet-name>test5</servlet-name>
- 	<url-pattern>/day6/test5</url-pattern>
- </servlet-mapping>
+	</filter-mapping> -->
 
-<error-page>
 
-<error-code>404</error-code>
-<location>/4xx.jsp</location>
+	<servlet>
+		<servlet-name>test3</servlet-name>
+		<servlet-class>day5.Test3</servlet-class>
+	</servlet>
 
-</error-page>
 
-<error-page>
-<error-code>500</error-code>
-<location>/5xx.jsp</location>
-</error-page>
+	<servlet-mapping>
+
+		<servlet-name>test3</servlet-name>
+		<url-pattern>/test3</url-pattern>
+	</servlet-mapping>
+
+
+
+	<listener>
+		<listener-class>day5.ReqListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>day5.SessionListener</listener-class>
+	</listener>
+	
+	
+	<listener>
+		<listener-class>day5.ReqAttrListener</listener-class>
+	</listener>
+	
+	
+	<servlet>
+	
+		<servlet-name>test5</servlet-name>
+		<servlet-class>day5.Test5</servlet-class>
+	
+	</servlet>
+	
+	<servlet-mapping>
+	
+		<servlet-name>test5</servlet-name>
+		<url-pattern>/test5</url-pattern>
+	
+	</servlet-mapping>
 
 </web-app>
