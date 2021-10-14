@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+	
+<mapper namespace="day13.User2">
+
+<insert id="save1">
+
+	insert into user(id,name) values(100,'bwf')
+
+</insert>
+
+
+
+</mapper>

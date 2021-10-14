@@ -6,6 +6,19 @@
 	<display-name>web14</display-name>
 
 
+<servlet>
+
+<servlet-name>test1</servlet-name>
+<servlet-class>day8.Test1</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+<servlet-name>test1</servlet-name>
+<url-pattern>/day8/test1</url-pattern>
+
+</servlet-mapping>
 
 
 </web-app>
