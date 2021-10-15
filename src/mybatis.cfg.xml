@@ -42,7 +42,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 		<mapper resource="day13/User.xml" />
 		<mapper resource="day13/User2.xml" />
-
+		<mapper resource="day14/Category.xml" />
+		<mapper resource="day14/User.xml" />
+		<mapper resource="day14/Product.xml" />
+		<mapper resource="day14/Orders.xml" />
 
 	</mappers>
 

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+	
+<mapper namespace="day14.Orders">
+
+
+
+	<resultMap type="day14.Orders" id="rm1">
+	
+	
+		<id column="id" property="id"/>
+		<result column="code" property="code"/>
+		
+		<collection property="orderItemList" ofType="day14.OrderItem">
+		
+		
+			<result column="nums" property="nums"/>
+			<association property="product" javaType="day14.Product">
+			
+				<result column="name" property="name"/>
+				<result column="price" property="price"/>
+			
+			</association>
+		
+		</collection>
+	
+	</resultMap>
+
+
+	<select id="find1" resultMap="rm1">
+	
+		SELECT a.id,a.code,c.name,c.price,b.nums
+		FROM orders a
+		LEFT JOIN order_item b
+		ON a.id=b.oid
+		LEFT JOIN product c
+		ON b.pid=c.id
+		WHERE a.code=#{code}
+	
+	</select>
+	
+	
+	<insert id="save">
+	
+	
+		insert into 
+		order_item(oid,pid,nums)
+		values(#{orders.id},#{product.id},#{nums})
+	
+	</insert>
+
+
+</mapper>

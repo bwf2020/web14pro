@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+	
+<mapper namespace="day14.Category">
+
+
+<select id="find1" resultType="day14.Category">
+	
+	select *
+	from category
+	where name like concat('%',#{name},'%')
+	
+</select>
+
+<select id="find2" resultType="day14.Category">
+
+	<![CDATA[
+
+	select * 
+	from category
+	where name like concat('%',#{name},'%')  
+	and id < #{id}
+	
+		
+	]]>
+
+</select>
+
+
+<select id="find3" resultType="day14.Category">
+	
+	select *
+	from category
+	where 1=1
+	
+</select>
+
+
+<resultMap type="day14.Category" id="rm2">
+
+
+<id column="cid" property="id"/>
+<result column="cname" property="name"/>
+
+<collection property="productList" ofType="day14.Product">
+
+	<result column="pid" property="id"/>
+	<result column="pname" property="name"/>
+	<result column="price" property="price"/>
+
+</collection>
+
+
+</resultMap>
+
+<select id="find4" resultMap="rm2">
+
+	SELECT a.id AS cid,a.name AS cname,b.id AS pid,b.name AS pname,b.price
+	FROM category a
+	LEFT JOIN product b
+	ON a.id=b.cid
+	WHERE a.id=#{id}
+
+</select>
+	
+
+</mapper>
