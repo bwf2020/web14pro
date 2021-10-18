@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+	
+<mapper namespace="day15.User">
+
+<!-- <cache /> -->
+
+
+	<select id="find1" resultType="day15.User" useCache="true">
+	
+		select *
+		from user
+		where id=#{id}
+	
+	</select>
+	
+	
+	<resultMap type="day15.User" id="rm1">
+	
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		
+		<collection property="telList" ofType="day15.Tel">
+		
+			<result column="nums" property="nums"/>
+		
+		
+		</collection>
+	
+	</resultMap>
+	
+	<select id="find2"  resultMap="rm1">
+	
+		SELECT  a.id,a.name,b.nums
+		FROM USER a
+		LEFT JOIN tel b
+		ON a.id=b.uid
+		WHERE a.id=#{id}
+	
+	</select>
+	
+	
+	<resultMap type="day15.User" id="rm2">
+	
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		
+		<collection property="telList" select="day15.Tel.find10" column="id" fetchType="lazy">
+		</collection>
+	
+	</resultMap>
+	
+	<select id="find3" resultMap="rm2">
+	
+		select *
+		from user
+		where id=#{id}
+	
+	</select>
+
+
+</mapper>

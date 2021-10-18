@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	
+	
+<mapper namespace="day15.User">
+
+
+<select id="find1" resultType="day15.User">
+
+	select *
+	from user
+	where name=#{name}
+
+</select>
+
+
+<select id="find2" resultType="day15.User">
+
+	select *
+	from user
+	where sex=#{sex}
+
+</select>
+
+<select id="find3" resultType="day15.User">
+
+	select *
+	from user
+	where name=#{name} 
+	and sex=#{sex}
+
+</select>
+
+<select id="find" resultType="day15.User">
+
+
+	select *
+	from user
+	where 1=1
+	
+	<if test="name!=null">
+		
+		and name=#{name}
+	
+	</if>
+	
+	<if test="sex!=null">
+		
+		and sex=#{sex}
+	
+	</if>
+
+</select>
+
+<select id="find4" resultType="day15.User">
+
+
+	select *
+	from user
+
+	<where>
+	
+	<if test="name!=null">
+		
+		and name=#{name}
+	
+	</if>
+	
+	<if test="sex!=null">
+		
+		and sex=#{sex}
+	
+	</if>
+	
+	</where>
+
+</select>
+
+<update id="up">
+
+	update user
+	
+	<set>
+	
+	<if test="name!=null">
+	name=#{name},
+	</if>
+	
+	<if test="sex!=null">
+	sex=#{sex},
+	</if>
+	
+	</set>
+	
+	
+	
+	
+	
+	
+	where id=#{id}
+
+</update>
+
+<select id="find5" resultType="day15.User">
+
+	select *
+	from user
+	<trim prefix="where" prefixOverrides="and">
+	
+		<if test="name!=null">
+		
+			and name=#{name}
+		
+		</if>
+		
+		<if test="sex!=null">
+		
+			and sex=#{sex}
+		
+		</if>
+	
+	</trim>
+
+</select>
+
+
+<update id="up2">
+
+	update user
+	
+	<trim prefix="set" suffixOverrides=",">
+	
+	<if test="name!=null">
+	name=#{name},
+	</if>
+	
+	<if test="sex!=null">
+	sex=#{sex},
+	</if>
+	
+	</trim>
+	
+	
+	where id=#{id}
+
+</update>
+
+<select id="find6" resultType="day15.User">
+
+
+	select *
+	from user
+	
+	<where>
+	
+		<choose>
+		
+			<when test="name!=null">
+			
+				and name=#{name}
+			
+			</when>
+			
+			<when test="sex!=null">
+			
+				and sex=#{sex}
+			
+			</when>
+			<otherwise>
+			
+				and 1=1
+			
+			</otherwise>
+		
+		
+		</choose>
+	
+	</where>
+
+</select>
+
+
+<select id="find7" resultType="day15.User">
+
+
+	select * 
+	from user
+	where id in 
+
+
+		<foreach collection="list" item="id" separator="," open="(" close=")" index="i">
+		
+			#{id}
+			
+		
+		</foreach>
+
+
+
+</select>
+
+<select id="find8" resultType="day15.User">
+
+
+	select * 
+	from user
+	where id in 
+
+
+		<foreach collection="array" item="id" separator="," open="(" close=")" index="i">
+		
+			#{id}
+			
+		
+		</foreach>
+
+
+
+</select>
+
+<select id="find9" resultType="day15.User">
+
+
+	select * 
+	from user
+	where id in 
+
+
+		<foreach collection="collection" item="id" separator="," open="(" close=")" index="i">
+		
+			#{id}
+			
+		
+		</foreach>
+
+
+
+</select>
+
+
+
+<select id="find10" resultType="day15.User">
+
+
+	select * 
+	from user
+	where id in 
+
+
+		<foreach collection="map" item="id" separator="," open="(" close=")" index="i">
+		
+			#{id}
+			
+		
+		</foreach>
+
+
+
+</select>
+
+<select id="find11" resultType="day15.User">
+
+		select * 
+		from user
+		where name=${name}
+
+
+</select>
+
+<select id="find12" resultType="int">
+
+		select count(1) 
+		from user
+		where id>1
+
+
+</select>
+
+<select id="find13" resultType="int">
+
+		select count(1) 
+		from tel
+		where id>1
+
+
+</select>
+
+
+<select id="find14" resultType="int">
+
+		select count(1) 
+		from ${tbname}
+		where id>1
+
+
+</select>
+
+
+</mapper>
