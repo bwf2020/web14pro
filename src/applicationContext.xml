@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
    http://www.springframework.org/schema/beans
@@ -8,23 +9,36 @@
    
    http://www.springframework.org/schema/context
    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+   
+   http://www.springframework.org/schema/aop
+   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+   
    ">
 
 
-	<bean name="user1" class="day16.User7">
+<bean name="myAspect" class="day17.MyAspect"></bean>
+<bean name="myAspect2" class="day17.MyAspect2"></bean>
+
+<bean name="userService" class="day17.UserService"></bean>
+<bean name="dogService" class="day17.DogService"></bean>
+
+<aop:config>
+
+	<aop:pointcut expression="execution(* day17.*.*(..))" id="pc"/>
 	
-		<property name="name" value="bwf"></property>
-		<property name="list">
-			<list>
-				<value>1</value>
-				<value>2</value>
-				<value>3</value>
-				<value>4</value>
-				<value>5</value>
-				<value>3</value>
-			</list>
-		</property>
+	<aop:aspect ref="myAspect">
+		
+		<aop:before method="before" pointcut-ref="pc"/>
+		<aop:after method="after" pointcut-ref="pc"/>
+		
+	</aop:aspect>
 	
-	</bean>
-	
+	<aop:aspect ref="myAspect2">
+		<aop:before method="before" pointcut-ref="pc"/>
+		<aop:after method="after" pointcut-ref="pc"/>
+	</aop:aspect>
+
+</aop:config>
+
+
 </beans>

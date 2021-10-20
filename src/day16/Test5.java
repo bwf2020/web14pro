@@ -8,7 +8,7 @@ public class Test5 {
 	public static void main(String[] args) {
 
 
-	 ApplicationContext context=new ClassPathXmlApplicationContext(new String[] {"applicationContext.xml"}) ;
+	 ApplicationContext context=new ClassPathXmlApplicationContext(new String[] {"applicationContext5.xml"}) ;
 	
 	UserService userService=context.getBean(UserService.class);
 	
