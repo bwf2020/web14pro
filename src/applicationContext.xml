@@ -15,30 +15,33 @@
    
    ">
 
+	<bean name="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 
-<bean name="myAspect" class="day17.MyAspect"></bean>
-<bean name="myAspect2" class="day17.MyAspect2"></bean>
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver"></property>
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/java14?characterEncoding=UTF-8
+			</value>
 
-<bean name="userService" class="day17.UserService"></bean>
-<bean name="dogService" class="day17.DogService"></bean>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>123456</value>
+		</property>
+	</bean>
 
-<aop:config>
-
-	<aop:pointcut expression="execution(* day17.*.*(..))" id="pc"/>
+	<bean name="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 	
-	<aop:aspect ref="myAspect">
+		<property name="dataSource" ref="dataSource"></property>
+		 <property name="configLocation" value="classpath:mybatis.cfg.xml"></property>
 		
-		<aop:before method="before" pointcut-ref="pc"/>
-		<aop:after method="after" pointcut-ref="pc"/>
-		
-	</aop:aspect>
+	</bean>
 	
-	<aop:aspect ref="myAspect2">
-		<aop:before method="before" pointcut-ref="pc"/>
-		<aop:after method="after" pointcut-ref="pc"/>
-	</aop:aspect>
-
-</aop:config>
-
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="day17"></property>
+	</bean>
 
 </beans>

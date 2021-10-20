@@ -1,5 +1,8 @@
 package day17;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class DogService implements IDogService {
 
 	@Override
