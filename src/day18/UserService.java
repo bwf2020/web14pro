@@ -3,6 +3,7 @@ package day18;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class UserService implements IUserService {
@@ -13,6 +14,7 @@ public class UserService implements IUserService {
 	
 	
 	@Override
+	@Transactional
 	public void reg(User user) {
 
 

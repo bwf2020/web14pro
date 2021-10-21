@@ -52,9 +52,34 @@
 	</bean>
 	
 	<!-- 事务管理，管理哪个数据源 -->
-	<tx:annotation-driven/>
+	<bean name="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		
+		<property name="dataSource" ref="dataSource"></property>
 	
+	</bean>
+	
+	<!-- 事务相关的通知 -->
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+	
+		<tx:attributes>
+		
+			<!-- 对具体的方法是否需要在同一个事务中完成操作 -->
+			<tx:method name="*" propagation="REQUIRED"/>
 
+			
+		</tx:attributes>
+		
+	</tx:advice>
+	
+	<!-- 配置aop -->
+	<aop:config>
+	
+		<aop:pointcut expression="execution(* day18.UserService.*(..))" id="pc"/>
+	
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="pc"/>
+	
+	</aop:config>
+	
 
 
 </beans>
