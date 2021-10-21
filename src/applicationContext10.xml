@@ -15,39 +15,33 @@
    
    ">
 
-
-	<!-- 扫描包，找到注解，实例化对象 -->
-	<context:component-scan base-package="day18"></context:component-scan>
-
-
-	<!-- 配置数据源 -->
 	<bean name="dataSource"
-		class="org.apache.commons.dbcp.BasicDataSource">
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/java14?characterEncoding=UTF-8" />
-		<property name="username" value="root" />
-		<property name="password" value="123456" />
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver"></property>
+		<property name="url">
+			<value>jdbc:mysql://localhost:3306/java14?characterEncoding=UTF-8
+			</value>
 
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>123456</value>
+		</property>
 	</bean>
-	
-	<!-- 配置session工厂 -->
-	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
+
+	<bean name="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 	
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="configLocation" value="classpath:mybatis.cfg.xml"></property>
-	
+		 <property name="configLocation" value="classpath:mybatis.cfg.xml"></property>
+		
 	</bean>
 	
-	
-	<!-- 配置接口的代理类 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-	
-		<property name="basePackage" value="day18"></property>
-	
+		<property name="basePackage" value="day17"></property>
 	</bean>
-	
-	
-
 
 </beans>
