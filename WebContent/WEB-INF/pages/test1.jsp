@@ -14,5 +14,8 @@ ${user.id }<br/>
 
 ${user.name }
 
+<br/>
+名字:${name }
+
 </body>
 </html>

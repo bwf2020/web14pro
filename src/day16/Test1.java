@@ -7,9 +7,8 @@ public class Test1 {
 
 	public static void main(String[] args) {
 
-
 	 ApplicationContext context=new ClassPathXmlApplicationContext(new String[] {"applicationContext.xml"}) ;
-	
+	 
 	 //主动创建
 	 User3 u1=new User3();
 	 System.out.println(u1);
