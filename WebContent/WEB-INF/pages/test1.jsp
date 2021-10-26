@@ -15,7 +15,7 @@ ${user.id }<br/>
 ${user.name }
 
 <br/>
-名字:${name }
+名字:<span style="color:blue">${name }</span> 
 
 </body>
 </html>
