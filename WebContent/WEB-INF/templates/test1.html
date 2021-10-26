@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
 <title>Insert title here</title>
@@ -10,6 +10,159 @@
 	page
 	
 	<div th:text="${name}" style="border:1px red solid;width:200px;height:50px;color:green;font-size:36px">名字</div>
+
+	<br/>
+	
+	<span th:text="${name}">名字</span><br/>
+	<span th:text="${id}">编号</span><br/>
+	
+	<span th:text="${user.getId()}">对象名字</span><br/>
+	<span th:text="${user.name}">对象编号</span><br/>
+	
+	<span th:text="${id+name}">编号名字</span><br />
+	<span th:text="${id}+${name}">编号名字</span><br />
+	<span th:text="|${id}${name}|">编号名字</span><br />
+	
+	<span th:text="${2>1}">比较</span><br/>
+	
+	<span th:text="${id>user.id}">比较</span><br/>
+	
+	<span th:text="${id&lt;user.id}">比较</span><br/>
+	
+	<span th:text="${id}>${user.id}">比较</span><br/>
+	
+	<span th:text="${id}&lt;${user.id}">比较</span><br/>
+	
+	<span th:utext="${name2}">名字2</span><br/>
+	
+	
+	<span th:text="${name}">名字</span><br/>
+	
+	<span th:text="${list}">集合</span><br/>
+	
+	<span th:text="${list.size()}">集合</span><br/>
+	<span th:text="${list[0]}">集合</span><br/>
+	<span th:text="${list[1]}">集合</span><br/>
+	
+	<span th:text="${map}">map</span><br/>
+	<span th:text="${map.a}">map</span><br/>
+	<span th:text="${map['b']}">map</span><br/>
+	
+	
+	<hr/>
+	<span th:text="${num}">数字</span><br/>
+	<span th:text="${date}">日期</span><br/>
+	
+	
+	<span th:text="${#numbers.formatDecimal(num,0,3)}">数字</span><br/>
+	<span th:text="${date}">日期</span><br/>
+	
+	<span th:text="${#dates.createNow()}">日期</span><br/>
+	
+	<span th:text="${#dates.format(date)}">日期</span><br/>
+	
+	<span th:text="${#dates.format(date,'yyyy-MM-dd HH:mm:ss E')}">日期</span><br/>
+	
+	
+	<span th:text="${#strings.toString(user)}">对象</span><br/>
+	
+	
+	<span th:text="${'bwf'=='bwf'}"></span><br/>
+	
+	<span th:text="${str1==str2}"></span><br/>
+	
+	<span th:text="${#strings.equals(str1,str2)}"></span><br/>
+	
+	<span th:text="${#strings.contains(str1,'b')}"></span><br/>
+	
+	<span th:text="${#strings.substring(str1,1,3)}"></span><br/>
+	
+	<span th:text="${list.size()}">集合</span><br/>
+	<span th:text="${#lists.size(list)}">集合</span><br/>
+	
+	<hr/>
+	
+	<div style="border: 1px red solid;" th:if="true">
+		显示
+	</div>
+	
+	
+	<div style="border: 1px red solid;" th:if="!true">
+	
+		不显示
+	
+	</div>
+	
+	
+	<div style="border: 1px red solid;" th:if="${flag}">
+		显示2
+	</div>
+	<div style="border: 1px red solid;" th:if="!${flag}">
+		显示2-2
+	</div>
+	<div style="border: 1px red solid;" th:unless="${flag}">
+		显示2-1
+	</div>
+	
+	
+	<ul th:switch="${num2}">
+	
+	
+		<li th:case="1">一</li>
+		<li th:case="2">二</li>
+		<li th:case="3">三</li>
+		<li th:case="4">四</li>
+		<li th:case="*">五</li>
+		
+	</ul>
+	
+	<hr/>
+	
+	<ol>
+		<li th:text="${users[0].name}"></li>
+		<li th:text="${users[1].name}"></li>
+		<li th:text="${users[2].name}"></li>
+	</ol>
+	
+	
+	<table>
+	
+	<thead>
+		<tr><th>编号</th><th>姓名</th><th>状态</th></tr>
+	</thead>
+	
+	<tbody>
+	
+	<templates  th:each="user,s:${users}">
+		<tr th:if="${s.odd}" style="color:blue">
+			<td th:text="${user.id}">1</td><td th:text="${user.name}">张三</td><td th:text="${s.even}">状态</td>
+		</tr>
+		<tr th:if="${s.even}" style="color:red">
+			<td th:text="${user.id}">1</td><td th:text="${user.name}">张三</td><td th:text="${s.even}">状态</td>
+		</tr>
+	</templates>
+	</tbody>
+	
+	
+	</table>
+	
+	
+	<span th:object="${user3}">
+	
+		<span th:text="*{id}"></span>
+		<span th:text="*{name}"></span>
+	
+	</span>
+	
+	
+	<span title="标题">其它属性</span><br/>
+	
+	
+	<span th:title="${title}">其它属性</span><br/>
+	
+	<span th:style="'color:red'">样式</span>
+	
+	<span th:style="|color:'${color}|">样式</span>
 
 </body>
 </html>

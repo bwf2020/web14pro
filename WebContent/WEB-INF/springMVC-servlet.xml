@@ -28,13 +28,13 @@
 
 	<context:component-scan base-package="day21"></context:component-scan>
 
- 	<bean
+ 	<!-- <bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 
 		<property name="prefix" value="/WEB-INF/pages/"></property>
 		<property name="suffix" value=".jsp"></property>
 
-	</bean> 
+	</bean>  -->
 
 
 	<!-- 模板解决方案 -->
@@ -53,9 +53,10 @@
 	</bean>
 	
 	<!-- 视图解决方案 -->
-<!-- 	<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+ 	<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
 		<property name="templateEngine" ref="templateEngine"></property>
-	</bean> -->
+		<property name="characterEncoding" value="UTF-8"></property>
+	</bean> 
 	
 	
 
