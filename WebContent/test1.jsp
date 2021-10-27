@@ -1,3 +1,5 @@
+<%@page import="com.alibaba.fastjson.JSON"%>
+<%@page import="day22.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,14 +13,13 @@
 <b>51testing</b>
 
 <%
-String name=request.getParameter("name");
-%>
+	
+String name="bwf";
+pageContext.setAttribute("name", name);
+User user=new User();
+user.setName("zhangsan");
 
-<%=name.toUpperCase() %>
-
-<%
-
-request.getRequestDispatcher("test2.jsp").forward(request, response);
+pageContext.setAttribute("user", user);
 
 %>
 
@@ -26,3 +27,14 @@ hello
 
 </body>
 </html>
+
+<script>
+
+var name='${name}';
+alert(name)
+
+var user=${user};
+alert(user.name)
+
+
+</script>

@@ -26,9 +26,17 @@
 
 	<mvc:annotation-driven />
 
-	<context:component-scan base-package="day22"></context:component-scan>
+	<context:component-scan base-package="day21"></context:component-scan>
 
- 	
+ 	<!-- <bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
+		<property name="prefix" value="/WEB-INF/pages/"></property>
+		<property name="suffix" value=".jsp"></property>
+
+	</bean>  -->
+
+
 	<!-- 模板解决方案 -->
 	<bean name="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
 	

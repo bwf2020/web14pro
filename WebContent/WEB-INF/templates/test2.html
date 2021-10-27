@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+<!--  <link rel="stylesheet" href="/web14/css/my.css" />  -->
+<link rel="stylesheet" th:href="@{/css/my.css}" />
+<script type="text/javascript" th:src="@{/js/my.js}"></script>
+
+<script type="text/javascript" th:inline="javascript">
+
+
+var a=1;
+
+
+var b=[[${b}]];
+
+
+var c=[[${c}]]
+
+var d=[[${d}]];
+
+console.log(d);
+
+var e=[[${e}]];
+console.log(e);
+
+var f=[[${f}]];
+console.log(f);
+
+
+var g=[[${g}]];
+console.log(g);
+
+</script>
+
+</head>
+<body>
+
+	test2 thy
+	<br />
+	<div onclick="show()">css</div>
+	<br />
+
+	<img th:src="@{/imgs/a.jpg}" width="100px" height="100px" />
+	<br />
+
+	<img th:src="|@{/imgs/}${img}|" width="100px" height="100px" />
+	<br />
+	<img th:src="@{/imgs/{img}(img=${img})}" width="100px" height="100px" />
+
+
+	<a th:href="@{/up.html(id=1,name=bwf)}">上传页面</a>
+
+
+	<br />
+
+
+	<form action="">
+
+
+		姓名：<input type="text" th:value="${user.name}" /><br /> 
+		单选: <input
+			type="radio" value="1" th:checked="${user.check==1}" />是 <input
+			type="radio" value="0" th:checked="${user.check==0}" />否 <br /> 
+		下拉: 
+		<select>
+
+			<option th:each="data:${map}" th:value="${data.key}"
+				th:text="${data.value}" th:selected="${user.index==data.key}">
+				
+				
+			</option>
+
+		</select>
+
+	</form>
+	
+	
+	<hr/>
+	
+	<span th:text="${name}">姓名</span><br/>
+	<span th:text="${name}"></span><br/>
+	<span th:text="${name}"></span><br/>
+	<span th:text="${name}"></span><br/>
+	<span th:text="${name}"></span><br/>
+	
+	<span th:inline="text">
+		<span>[[${name}]]姓名</span><br/>
+		<span>[[${name}]]</span><br/>
+		<span>[[${name}]]</span><br/>
+		<span>[[${name}]]</span><br/>
+		<span>[[${name}]]</span><br/>
+		<span>[[${name}]]</span><br/>
+	</span>
+
+
+<span th:include="foot::cp1"></span>
+
+<br/>
+
+
+<span th:include="foot::#cp2"></span>
+
+<br/>
+<span th:replace="foot::cp1"></span>
+
+<br/>
+<span th:replace="foot::#cp2"></span>
+
+
+</body>
+</html>
