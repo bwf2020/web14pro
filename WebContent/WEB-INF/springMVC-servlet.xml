@@ -26,8 +26,10 @@
 
 	<mvc:annotation-driven />
 
-	<context:component-scan base-package="day22"></context:component-scan>
+	<context:component-scan base-package="day23"></context:component-scan>
 
+
+	<bean name="userService" class="com.bwf.proj1.UserService"></bean>
  	
 	<!-- 模板解决方案 -->
 	<bean name="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">

@@ -1,0 +1,10 @@
+server:
+    port: 8090
+    servlet:
+         context-path: /boot1
+         
+         
+         
+a: A
+b: B
+c: zhangsan,lisi,wangwu

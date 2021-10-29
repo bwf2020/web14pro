@@ -1,0 +1,19 @@
+package day24;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication(scanBasePackages= {"com.bwf.controller"})
+public class StartBoot1 {
+
+	public static void main(String[] args) {
+
+
+		System.out.println("正在启动boot1服务");
+		SpringApplication.run(StartBoot1.class);
+		System.out.println("========成功启动===========");
+		
+
+	}
+
+}
